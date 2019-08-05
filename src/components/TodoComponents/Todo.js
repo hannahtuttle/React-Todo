@@ -7,7 +7,8 @@ class ToDo extends React.Component {
 
     render(){
         return(
-        <div className={this.props.item.completed ? 'completed': ''} onClick={this.props.item.toggleTask}>
+        <div className={this.props.item.completed ? 'completed': ''} 
+        onClick={() => this.props.toggleTask(this.props.item.id)}>
         <p>{this.props.item.task}</p>
         </div>
         )
@@ -15,3 +16,5 @@ class ToDo extends React.Component {
 }
 
 export default ToDo
+
+//}

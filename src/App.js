@@ -3,7 +3,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js'
 import ToDoForm from './components/TodoComponents/TodoForm.js'
 
-import './ToDo.css'
+import './Todo.css'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -30,6 +30,7 @@ class App extends React.Component {
   }
 
   toggleTask = id => {
+    console.log('working toggle function')
     this.setState({
       list: this.state.list.map(item => {
         if(item.id===id){
@@ -44,13 +45,19 @@ class App extends React.Component {
     })
   }
 
+  clearTask = task => {
+    this.setState({
+      list: this.state.list.filter(item => !item.completed)
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         {/* <p>{this.state.task}</p> */}
         <TodoList taskList={this.state.list} toggleTask={this.toggleTask}/>
-        <ToDoForm addTask={this.addTask}/>
+        <ToDoForm addTask={this.addTask} clearTask={this.clearTask}/>
       </div>
     );
   }

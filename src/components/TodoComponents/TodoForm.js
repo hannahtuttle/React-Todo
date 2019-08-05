@@ -30,7 +30,7 @@ class ToDoForm extends React.Component{
             onChange={this.handleChange}
             />
             <button>Add</button>
-            <button>Clear Completed</button>
+            <button onClick={this.props.clearTask}>Clear Completed</button>
         </form>
             </>
         )
