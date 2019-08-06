@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 class ToDoForm extends React.Component{
     constructor(){
         super();
@@ -8,9 +9,15 @@ class ToDoForm extends React.Component{
         }
         
     }
+    // componentDidMount() {
+    //     const rememberList = localStorage.getItem('item');
+    //     this.setState({ rememberList });
+    //   }
+
      submitTask = event => {
         event.preventDefault()
         this.props.addTask(this.state.item)
+        // localStorage.setItem('item',this.state.item)
     }
 
      handleChange = event => {
@@ -30,8 +37,8 @@ class ToDoForm extends React.Component{
             onChange={this.handleChange}
             />
             <button>Add</button>
-            <button onClick={this.props.clearTask}>Clear Completed</button>
         </form>
+            <button onClick={this.props.clearTask}>Clear Completed</button>
             </>
         )
     }

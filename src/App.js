@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import TodoList from './components/TodoComponents/TodoList.js'
 import ToDoForm from './components/TodoComponents/TodoForm.js'
+import SearchBar from './components/search.js'
 
 import './Todo.css'
 
@@ -66,7 +67,7 @@ class App extends React.Component {
     })
   }
 
-  clearTask = task => {
+  clearTask = () => {
     this.setState({
       list: this.state.list.filter(item => !item.completed)
     })
@@ -76,6 +77,7 @@ class App extends React.Component {
     return (
       <StyledContainer>
         <StyledTitle>Welcome to your Todo App!</StyledTitle>
+        <SearchBar/>
         {/* <p>{this.state.task}</p> */}
         <TodoList taskList={this.state.list} toggleTask={this.toggleTask}/>
         <ToDoForm addTask={this.addTask} clearTask={this.clearTask}/>
